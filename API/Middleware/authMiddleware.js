@@ -1,4 +1,6 @@
 const { verifyJWT } = require("../Service/authService");
+const { api_messages } = require("../config.json");
+
 /**
  *
  * @param {object} req
@@ -12,7 +14,7 @@ const validateToken = (req, res, next) => {
   if (keywordBearer === "Bearer") {
     verifyJWT(token, (err, jwtPayload) => {
       if (err) {
-        res.status(401).send(err);
+        res.status(401).send(api_messages.error.UNAUTHORIZE_ACCESS);
         return;
       }
 
@@ -22,7 +24,7 @@ const validateToken = (req, res, next) => {
       next();
     });
   } else {
-    res.status(401).send("Authrization token missing");
+    res.status(401).send(api_messages.error.TOKEN_NOT_VALIDATED);
   }
 };
 
@@ -40,9 +42,9 @@ const validateRole =
         next();
         return;
       }
-      res.status(401).send("Unauthorize access");
+      res.status(401).send(api_messages.error.UNAUTHORIZE_ACCESS);
     } else {
-      res.status(500).send("Authorization token not validated");
+      res.status(500).send(api_messages.error.TOKEN_NOT_VALIDATED);
     }
   };
 
@@ -69,7 +71,7 @@ const validatePermission =
               (permission) => !userPermissions.includes(permission)
             )
           ) {
-            res.status(401).send("Unauthorize access");
+            res.status(401).send(api_messages.error.UNAUTHORIZE_ACCESS);
             return;
           }
         } else if (
@@ -78,14 +80,14 @@ const validatePermission =
             userPermissions.includes(permission)
           )
         ) {
-          res.status(401).send("Unauthorize access");
+          res.status(401).send(api_messages.error.UNAUTHORIZE_ACCESS);
           return;
         }
 
         next();
       }
     } else {
-      res.status(500).send("Authorization token not validated");
+      res.status(500).send(api_messages.error.TOKEN_NOT_VALIDATED);
     }
   };
 

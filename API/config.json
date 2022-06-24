@@ -1,0 +1,14 @@
+{
+  "api_roles": {
+    "ADMIN": "admin",
+    "SELLER": "seller",
+    "CUSTOMER": "customer",
+    "SUPPORTER": "supporter"
+  },
+  "api_messages": {
+    "error": {
+      "UNAUTHORIZE_ACCESS": "Not authorized to access endpoint",
+      "TOKEN_NOT_VALIDATED": "Authorization token not validated"
+    }
+  }
+}
