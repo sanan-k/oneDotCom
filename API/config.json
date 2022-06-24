@@ -1,9 +1,9 @@
 {
-  "api_roles": {
-    "ADMIN": "admin",
-    "SELLER": "seller",
-    "CUSTOMER": "customer",
-    "SUPPORTER": "supporter"
+  "sys_roles": {
+    "ADMIN": "Admin",
+    "SELLER": "Seller",
+    "CUSTOMER": "Customer",
+    "SUPPORTER": "Supporter"
   },
   "sys_messages": {
     "error": {
@@ -12,7 +12,9 @@
       "INVALID_CREDENTIAL": "[400] Invalid credential",
       "CREATE_SESSION_FAILED": "[500] Could not create session",
       "CLEAR_SESSION_FAILED": "[500] Could not clear session",
-      "SESSION_EXPIRED": "[400] Session expired"
+      "SESSION_EXPIRED": "[400] Session expired",
+      "INVALID_PASSWORD_PATTERN": "[400] Password is not alpha-numeric",
+      "INVALID_ROLE_REQUESTED": "[400] Role does not exists"
     },
     "warning": {
       "SESSION_NOT_FOUND": "Session is not active"

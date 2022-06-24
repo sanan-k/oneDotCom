@@ -14,7 +14,7 @@ const {
   deleteProduct,
 } = require("../Controller/productController");
 
-const { api_roles } = require("../config.json");
+const { sys_roles } = require("../config.json");
 
 const router = Router();
 const basePath = "/products";
@@ -24,17 +24,17 @@ router.use("*", validateToken, validateSession);
 router.get("/", createControllerActionMiddleware(getProducts));
 router.post(
   "/",
-  validateRole([api_roles.ADMIN, api_roles.SELLER]),
+  validateRole([sys_roles.ADMIN, sys_roles.SELLER]),
   createControllerActionMiddleware(createProduct)
 );
 router.put(
   "/",
-  validateRole([api_roles.ADMIN, api_roles.SELLER]),
+  validateRole([sys_roles.ADMIN, sys_roles.SELLER]),
   createControllerActionMiddleware(updateProduct)
 );
 router.delete(
   "/",
-  validateRole([api_roles.ADMIN, api_roles.SUPPORTER]),
+  validateRole([sys_roles.ADMIN, sys_roles.SUPPORTER]),
   createControllerActionMiddleware(deleteProduct)
 );
 
