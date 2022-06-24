@@ -16,7 +16,7 @@ Create Table User(
 	Id Int Auto_Increment Primary Key,
     UserName varchar(16) Unique Not Null,
     Password varchar(128) Not Null,
-    Role Varchar(25) Not Null,
+    Role Varchar(32) Not Null,
     Foreign Key(Role) References RolePermission(Role)
 );
 
