@@ -1,4 +1,5 @@
 const { verifyJWT } = require("../Service/authService");
+const { checkSession } = require("../Service/Session");
 const { sys_messages } = require("../config.json");
 
 /**
@@ -91,6 +92,25 @@ const validatePermission =
       res.status(500).send(sys_messages.error.TOKEN_NOT_VALIDATED);
     }
   };
+
+/**
+ *
+ * @param {object} req
+ * @param {object} res
+ * @param {function} next
+ */
+const validateSession = (req, res, next) => {
+  const { auth } = res.locals;
+
+  if (auth) {
+    if (checkSession(auth.token)) {
+      next();
+    }
+    res.status(400).send(sys_messages.error.SESSION_EXPIRED);
+  } else {
+    res.status(500).send(sys_messages.error.TOKEN_NOT_VALIDATED);
+  }
+};
 
 module.exports = {
   validateToken,
