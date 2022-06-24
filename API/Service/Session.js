@@ -23,12 +23,16 @@ const clearSession = (sessionId) => {
 };
 
 const checkSession = (sessionId) => {
-  const { created } = SessionMap.has(sessionId);
-  if (created && Date.now() - created >= token_timeout) {
-    clearSession(sessionId);
-    return false;
+  if (SessionMap.has(sessionId)) {
+    const { created } = SessionMap.get(sessionId);
+    if (created && Date.now() - created >= token_timeout) {
+      clearSession(sessionId);
+      return false;
+    }
+    return true;
   }
-  return true;
+
+  return false;
 };
 
 const getSessionData = (sessionId) => {
