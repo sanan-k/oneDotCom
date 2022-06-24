@@ -1,7 +1,9 @@
-const {
-  systemMessageParser,
-  checkIsSystemMessage,
-} = require("../Helper/utility");
+class ControllerActionError extends Error {
+  constructor(code, message) {
+    super(message);
+    this.code = code;
+  }
+}
 
 /**
  *
@@ -18,15 +20,16 @@ const createControllerActionMiddleware = (action) => async (req, res) => {
   const context = {
     params,
     auth: res.locals.auth,
+    Error: (httpErrcode, message) =>
+      new ControllerActionError(httpErrcode, message),
   };
 
   try {
     const actionResult = await action(context);
     res.send(actionResult);
   } catch (err) {
-    if (err.message && checkIsSystemMessage(err.message)) {
-      const [code, message] = systemMessageParser(err.message);
-      res.status(code).send(message);
+    if (err instanceof ControllerActionError) {
+      res.status(err.code).send(message);
       return;
     }
     res.status(500).send(err);

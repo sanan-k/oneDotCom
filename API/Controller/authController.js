@@ -21,10 +21,10 @@ const login = async (ctx) => {
       return token;
     }
 
-    throw Error(sys_messages.error.CREATE_SESSION_FAILED);
+    throw ctx.Error(500, sys_messages.error.CREATE_SESSION_FAILED);
   }
 
-  throw Error(sys_messages.error.INVALID_CREDENTIAL);
+  throw ctx.Error(400, sys_messages.error.INVALID_CREDENTIAL);
 };
 
 const logout = (ctx) => {
@@ -36,7 +36,7 @@ const logout = (ctx) => {
       return true;
     }
 
-    throw Error(sys_messages.error.CLEAR_SESSION_FAILED);
+    throw ctx.Error(500, sys_messages.error.CLEAR_SESSION_FAILED);
   }
 
   return sys_messages.warning.SESSION_NOT_FOUND;

@@ -7,12 +7,12 @@ const createUser = async (ctx) => {
 
   // check password is only alpha numeric
   if (!(/[A-z]/.test(password) && /\d/.test(password))) {
-    throw Error(sys_messages.error.INVALID_PASSWORD_PATTERN);
+    throw ctx.Error(402, sys_messages.error.INVALID_PASSWORD_PATTERN);
   }
 
   // check role is recognised by system
   if (!Object.values(sys_roles).includes(role)) {
-    throw Error(sys_messages.error.INVALID_ROLE_REQUESTED);
+    throw ctx.Error(402, sys_messages.error.INVALID_ROLE_REQUESTED);
   }
 
   await dbCreateUser({
