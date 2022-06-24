@@ -20,6 +20,7 @@ const validateToken = (req, res, next) => {
 
       res.locals.auth = {
         ...jwtPayload,
+        token,
       };
       next();
     });
