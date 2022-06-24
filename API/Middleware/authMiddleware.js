@@ -116,4 +116,5 @@ module.exports = {
   validateToken,
   validateRole,
   validatePermission,
+  validateSession,
 };
