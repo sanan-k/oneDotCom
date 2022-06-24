@@ -14,7 +14,7 @@ const login = async (ctx) => {
   const user = await getUser(userName);
   const hashedPassword = hash(password);
 
-  if (hashedPassword === user.password) {
+  if (user && hashedPassword === user.password) {
     const token = await generateJWT({ userName, role: user.role });
     const sessionCreated = createSession(token, user.role);
     if (sessionCreated) {
