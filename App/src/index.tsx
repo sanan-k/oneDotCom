@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Auth from "./container/Auth";
+import Auth from "./container/auth";
 import Home from "./container/home";
 
 const appCntnrStyle: React.CSSProperties = {
