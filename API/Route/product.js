@@ -1,5 +1,9 @@
 const Router = require("express").Router;
-const { validateToken, validateRole } = require("../Middleware/authMiddleware");
+const {
+  validateToken,
+  validateRole,
+  validateSession,
+} = require("../Middleware/authMiddleware");
 const {
   createControllerActionMiddleware,
 } = require("../Middleware/createControllerActionMiddleware");
@@ -15,7 +19,7 @@ const { api_roles } = require("../config.json");
 const router = Router();
 const basePath = "/products";
 
-router.use("*", validateToken);
+router.use("*", validateToken, validateSession);
 
 router.get("/", createControllerActionMiddleware(getProducts));
 router.post(
