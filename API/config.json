@@ -8,8 +8,10 @@
   "api_messages": {
     "error": {
       "UNAUTHORIZE_ACCESS": "Not authorized to access endpoint",
-      "TOKEN_NOT_VALIDATED": "Authorization token not validated"
+      "TOKEN_NOT_VALIDATED": "Authorization token not validated",
+      "INVALID_CREDENTIAL": "Invalid Credential"
     }
   },
-  "hash_secret": "$0me#ash$3cre!"
+  "hash_secret": "$0me#ash$3cre!",
+  "token_timeout": 604800
 }
