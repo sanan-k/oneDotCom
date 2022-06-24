@@ -1,4 +1,5 @@
 const Router = require("express").Router;
+const { validateToken } = require("../Middleware/authMiddleware");
 const {
   createControllerActionMiddleware,
 } = require("../Middleware/createControllerActionMiddleware");
@@ -8,7 +9,7 @@ const router = Router();
 const basePath = "/auth";
 
 router.post("/login", createControllerActionMiddleware(login));
-router.post("/logout", createControllerActionMiddleware(logout));
+router.post("/logout", validateToken, createControllerActionMiddleware(logout));
 
 module.exports = {
   basePath,
