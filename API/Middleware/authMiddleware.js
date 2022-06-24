@@ -1,5 +1,5 @@
 const { verifyJWT } = require("../Service/authService");
-const { api_messages } = require("../config.json");
+const { sys_messages } = require("../config.json");
 
 /**
  *
@@ -14,7 +14,7 @@ const validateToken = (req, res, next) => {
   if (keywordBearer === "Bearer") {
     verifyJWT(token, (err, jwtPayload) => {
       if (err) {
-        res.status(401).send(api_messages.error.UNAUTHORIZE_ACCESS);
+        res.status(401).send(sys_messages.error.UNAUTHORIZE_ACCESS);
         return;
       }
 
@@ -24,7 +24,7 @@ const validateToken = (req, res, next) => {
       next();
     });
   } else {
-    res.status(401).send(api_messages.error.TOKEN_NOT_VALIDATED);
+    res.status(401).send(sys_messages.error.TOKEN_NOT_VALIDATED);
   }
 };
 
@@ -42,9 +42,9 @@ const validateRole =
         next();
         return;
       }
-      res.status(401).send(api_messages.error.UNAUTHORIZE_ACCESS);
+      res.status(401).send(sys_messages.error.UNAUTHORIZE_ACCESS);
     } else {
-      res.status(500).send(api_messages.error.TOKEN_NOT_VALIDATED);
+      res.status(500).send(sys_messages.error.TOKEN_NOT_VALIDATED);
     }
   };
 
@@ -71,7 +71,7 @@ const validatePermission =
               (permission) => !userPermissions.includes(permission)
             )
           ) {
-            res.status(401).send(api_messages.error.UNAUTHORIZE_ACCESS);
+            res.status(401).send(sys_messages.error.UNAUTHORIZE_ACCESS);
             return;
           }
         } else if (
@@ -80,14 +80,14 @@ const validatePermission =
             userPermissions.includes(permission)
           )
         ) {
-          res.status(401).send(api_messages.error.UNAUTHORIZE_ACCESS);
+          res.status(401).send(sys_messages.error.UNAUTHORIZE_ACCESS);
           return;
         }
 
         next();
       }
     } else {
-      res.status(500).send(api_messages.error.TOKEN_NOT_VALIDATED);
+      res.status(500).send(sys_messages.error.TOKEN_NOT_VALIDATED);
     }
   };
 

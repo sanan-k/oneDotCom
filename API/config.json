@@ -5,11 +5,13 @@
     "CUSTOMER": "customer",
     "SUPPORTER": "supporter"
   },
-  "api_messages": {
+  "sys_messages": {
     "error": {
-      "UNAUTHORIZE_ACCESS": "Not authorized to access endpoint",
-      "TOKEN_NOT_VALIDATED": "Authorization token not validated",
-      "INVALID_CREDENTIAL": "Invalid Credential"
+      "UNAUTHORIZE_ACCESS": "[401] Not authorized to access endpoint",
+      "TOKEN_NOT_VALIDATED": "[500] Authorization token not validated",
+      "INVALID_CREDENTIAL": "[400] Invalid credential",
+      "CREATE_SESSION_FAILED": "[500] Could not create session",
+      "CLEAR_SESSION_FAILER": "[500] Could not clear session"
     }
   },
   "hash_secret": "$0me#ash$3cre!",
