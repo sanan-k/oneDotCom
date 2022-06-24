@@ -10,5 +10,6 @@
       "UNAUTHORIZE_ACCESS": "Not authorized to access endpoint",
       "TOKEN_NOT_VALIDATED": "Authorization token not validated"
     }
-  }
+  },
+  "hash_secret": "$0me#ash$3cre!"
 }
