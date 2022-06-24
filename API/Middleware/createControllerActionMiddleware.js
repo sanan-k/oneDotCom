@@ -3,7 +3,7 @@
  * @param {function} action
  * @returns
  */
-const createControllerMiddleware = (action) => async (req, res) => {
+const createControllerActionMiddleware = (action) => async (req, res) => {
   const params = {
     ...req.params,
     ...req.query,
@@ -21,5 +21,5 @@ const createControllerMiddleware = (action) => async (req, res) => {
 };
 
 module.exports = {
-  createControllerMiddleware,
+  createControllerActionMiddleware,
 };
