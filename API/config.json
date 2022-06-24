@@ -1,0 +1,31 @@
+{
+  "sys_roles": {
+    "ADMIN": "Admin",
+    "SELLER": "Seller",
+    "CUSTOMER": "Customer",
+    "SUPPORTER": "Supporter"
+  },
+  "sys_permissions": {
+    "FETCH": "fetch",
+    "CREATE": "create",
+    "UPDATE": "update",
+    "DELETE": "delete"
+  },
+  "sys_messages": {
+    "error": {
+      "UNAUTHORIZE_ACCESS": "Not authorized to access endpoint",
+      "TOKEN_NOT_VALIDATED": "Authorization token not validated",
+      "INVALID_CREDENTIAL": "Invalid credential",
+      "CREATE_SESSION_FAILED": "Could not create session",
+      "CLEAR_SESSION_FAILED": "Could not clear session",
+      "SESSION_EXPIRED": "Session expired",
+      "INVALID_PASSWORD_PATTERN": "Password is not alpha-numeric",
+      "INVALID_ROLE_REQUESTED": "Role does not exists"
+    },
+    "warning": {
+      "SESSION_NOT_FOUND": "Session is not active"
+    }
+  },
+  "hash_secret": "$0me#ash$3cre!",
+  "token_timeout": 604800000
+}

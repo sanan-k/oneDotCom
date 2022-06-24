@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "One Dot E-Com REST API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config .",
+    "dev": "DOTENV_CONFIG_PATH=.env.development npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanan-k/oneDotECom.git"
+  },
+  "author": "sanan-k",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanan-k/oneDotECom/issues"
+  },
+  "homepage": "https://github.com/sanan-k/oneDotECom#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3"
+  }
+}
