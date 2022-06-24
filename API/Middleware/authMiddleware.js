@@ -68,19 +68,13 @@ const validatePermission =
 
         if (all) {
           // check user has all permissions
-          if (
-            permissions.some(
-              (permission) => !userPermissions.includes(permission)
-            )
-          ) {
+          if (permissions.some((permission) => !userPermissions[permission])) {
             res.status(401).send(sys_messages.error.UNAUTHORIZE_ACCESS);
             return;
           }
         } else if (
           // check user has any permission
-          !permissions.some((permission) =>
-            userPermissions.includes(permission)
-          )
+          !permissions.some((permission) => userPermissions[permission])
         ) {
           res.status(401).send(sys_messages.error.UNAUTHORIZE_ACCESS);
           return;

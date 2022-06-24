@@ -5,6 +5,12 @@
     "CUSTOMER": "Customer",
     "SUPPORTER": "Supporter"
   },
+  "sys_permissions": {
+    "FETCH": "fetch",
+    "CREATE": "create",
+    "UPDATE": "update",
+    "DELETE": "delete"
+  },
   "sys_messages": {
     "error": {
       "UNAUTHORIZE_ACCESS": "Not authorized to access endpoint",
