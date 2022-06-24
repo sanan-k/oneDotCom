@@ -27,5 +27,5 @@
     }
   },
   "hash_secret": "$0me#ash$3cre!",
-  "token_timeout": 604800
+  "token_timeout": 604800000
 }

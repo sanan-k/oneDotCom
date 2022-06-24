@@ -29,7 +29,7 @@ const createControllerActionMiddleware = (action) => async (req, res) => {
     res.send(actionResult);
   } catch (err) {
     if (err instanceof ControllerActionError) {
-      res.status(err.code).send(message);
+      res.status(err.code).send(err.message);
       return;
     }
     res.status(500).send(err);

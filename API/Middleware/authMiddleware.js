@@ -99,6 +99,7 @@ const validateSession = (req, res, next) => {
   if (auth) {
     if (checkSession(auth.token)) {
       next();
+      return;
     }
     res.status(400).send(sys_messages.error.SESSION_EXPIRED);
   } else {
