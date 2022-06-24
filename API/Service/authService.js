@@ -1,10 +1,14 @@
 const jwt = require("jsonwebtoken");
-
+const { token_timeout } = require("../config.json");
 /**
  *
  * @param {number} userId
  */
-const generateJWT = async (userId) => {};
+const generateJWT = (jwtPayload) => {
+  return jwt.sign(jwtPayload, process.env.JWT_SECRET_KEY, {
+    expiresIn: token_timeout,
+  });
+};
 
 /**
  *

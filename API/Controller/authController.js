@@ -21,7 +21,7 @@ const login = async (ctx) => {
       return token;
     }
 
-    throw Error(sys_messages.error.SESSION_NOT_CREATED);
+    throw Error(sys_messages.error.CREATE_SESSION_FAILED);
   }
 
   throw Error(sys_messages.error.INVALID_CREDENTIAL);
