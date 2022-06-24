@@ -11,7 +11,10 @@
       "TOKEN_NOT_VALIDATED": "[500] Authorization token not validated",
       "INVALID_CREDENTIAL": "[400] Invalid credential",
       "CREATE_SESSION_FAILED": "[500] Could not create session",
-      "CLEAR_SESSION_FAILER": "[500] Could not clear session"
+      "CLEAR_SESSION_FAILED": "[500] Could not clear session"
+    },
+    "warning": {
+      "SESSION_NOT_FOUND": "Session is not active"
     }
   },
   "hash_secret": "$0me#ash$3cre!",
