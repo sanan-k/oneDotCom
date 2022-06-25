@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AppBanner from "../../components/appBanner";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
@@ -7,6 +7,10 @@ import Layout from "../layout";
 const Auth = ({ children }: React.PropsWithChildren) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+
+  const handleSignedUp = async () => {
+    setShowSignUp(false);
+  };
 
   return authenticated ? (
     <Layout onLogedOut={() => setAuthenticated(false)}>{children}</Layout>
@@ -21,7 +25,10 @@ const Auth = ({ children }: React.PropsWithChildren) => {
     >
       <AppBanner />
       {showSignUp ? (
-        <SignUp onSignInRequest={() => setShowSignUp(false)} />
+        <SignUp
+          onSignInRequest={() => setShowSignUp(false)}
+          onSignedUp={handleSignedUp}
+        />
       ) : (
         <SignIn
           onSignUpRequest={() => setShowSignUp(true)}

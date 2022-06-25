@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Button from "../../components/button";
 import LabeledInput from "../../components/labeledInput";
+import { createUser } from "../../service/user";
 interface IProps {
   onSignInRequest: () => void;
+  onSignedUp: (userName: string, password: string) => void;
 }
 
 const signUpCntnrStyle: React.CSSProperties = {
@@ -23,13 +25,27 @@ const signInTextStyle: React.CSSProperties = {
   textDecoration: "underline",
 };
 
-const SignUp = ({ onSignInRequest }: IProps) => {
+const SignUp = ({ onSignInRequest, onSignedUp }: IProps) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
   const [role, setRole] = useState("");
 
-  const handleSignUp = async () => {};
+  const [attemptCreate, setAttemptCreate] = useState(false);
+  const [createError, setCreateError] = useState("");
+
+  const handleSignUp = async () => {
+    setAttemptCreate(true);
+    const error = await createUser(userName, password, role);
+    if (!error) {
+      alert("User Created Successfuly. Please Login");
+      onSignedUp(userName, password);
+    } else {
+      setAttemptCreate(false);
+      setCreateError(error);
+    }
+  };
 
   return (
     <div style={signUpCntnrStyle}>
@@ -101,7 +117,10 @@ const SignUp = ({ onSignInRequest }: IProps) => {
             onChange={(e) => setRole(e.target.value)}
           />
         </div>
-        <Button onClick={handleSignUp}>Sign Up</Button>
+        <Button onClick={handleSignUp} disabled={attemptCreate}>
+          Sign Up
+        </Button>
+        {createError && <div style={{ color: "orangered" }}>{createError}</div>}
       </div>
       <div>
         <p>
