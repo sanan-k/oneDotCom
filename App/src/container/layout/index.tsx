@@ -4,11 +4,13 @@ import { logout } from "../../service/auth";
 
 interface IProps extends React.PropsWithChildren {
   onLogedOut: () => void;
+  user?: string;
+  role?: string;
 }
 
-const Layout = ({ children, onLogedOut }: IProps) => {
+const Layout = ({ children, onLogedOut, user, role }: IProps) => {
   const handleLogout = async () => {
-    const err = await logout();
+    const { err } = await logout();
     if (!err) {
       onLogedOut();
     } else {
@@ -17,8 +19,8 @@ const Layout = ({ children, onLogedOut }: IProps) => {
   };
 
   return (
-    <div>
-      <NavBar onLogoutClick={handleLogout} />
+    <div style={{ width: "100%", height: "100%" }}>
+      <NavBar user={user} role={role} onLogoutClick={handleLogout} />
       {children}
     </div>
   );

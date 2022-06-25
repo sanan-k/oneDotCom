@@ -1,4 +1,4 @@
-import axios from "./base";
+import axios, { parseError } from "./base";
 
 const basePath = "/user";
 export const createUser = async (
@@ -7,13 +7,13 @@ export const createUser = async (
   role: string
 ) => {
   try {
-    await axios.post(basePath + "/register", {
+    const { data } = await axios.post(basePath + "/register", {
       userName,
       password,
       role,
     });
-    return null;
-  } catch ({ response: { data } }) {
-    return data;
+    return { data, err: "" };
+  } catch (err) {
+    return parseError(err);
   }
 };

@@ -6,7 +6,7 @@ import { login } from "../../service/auth";
 
 interface IProps {
   onSignUpRequest: () => void;
-  onSignedIn: () => void;
+  onSignedIn: (username: string, role: string) => void;
 }
 
 const signInCntnrStyle: React.CSSProperties = {
@@ -36,12 +36,12 @@ const SignIn = ({ onSignUpRequest, onSignedIn }: IProps) => {
 
   const handleLogin = async () => {
     setLoginAttempt(true);
-    const error = await login(userName, password);
+    const { data, err } = await login(userName, password);
 
-    if (!error) {
-      onSignedIn();
+    if (!err) {
+      onSignedIn(data.userName, data.role);
     } else {
-      setLoginError(error);
+      setLoginError(err);
       setLoginAttempt(false);
     }
   };

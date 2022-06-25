@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const No_Auth_Paths = ["/auth/login", "/user/register"];
 
@@ -32,3 +32,9 @@ axios.interceptors.request.use((config) => {
 });
 
 export default axios;
+
+export const parseError = ({
+  response,
+}: AxiosError): { err: string; data: null } => {
+  return { err: response.data as string, data: null };
+};

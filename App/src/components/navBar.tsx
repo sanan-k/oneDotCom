@@ -3,6 +3,8 @@ import Button from "./button";
 
 interface IProps {
   onLogoutClick: () => void;
+  user?: string;
+  role?: string;
 }
 
 const navBarCntnrStyle: React.CSSProperties = {
@@ -20,7 +22,7 @@ const eComParaStyle: React.CSSProperties = {
   fontFamily: "Arial Rounded MT Bold",
 };
 
-const NavBar = ({ onLogoutClick }: IProps) => {
+const NavBar = ({ onLogoutClick, user = "", role = "" }: IProps) => {
   return (
     <div style={navBarCntnrStyle}>
       <div style={{ display: "flex" }}>
@@ -41,10 +43,26 @@ const NavBar = ({ onLogoutClick }: IProps) => {
         </p> */}
       </div>
       <div>
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          {user && (
+            <p
+              style={{
+                textTransform: "capitalize",
+                textAlign: "center",
+                lineHeight: 0,
+              }}
+            >
+              {user} {role && <p>({role})</p>}
+            </p>
+          )}
           <Button onClick={onLogoutClick}>Logout</Button>
         </div>
-        <div></div>
       </div>
     </div>
   );

@@ -37,13 +37,13 @@ const SignUp = ({ onSignInRequest, onSignedUp }: IProps) => {
 
   const handleSignUp = async () => {
     setAttemptCreate(true);
-    const error = await createUser(userName, password, role);
-    if (!error) {
+    const { err } = await createUser(userName, password, role);
+    if (!err) {
       alert("User Created Successfuly. Please Login");
       onSignedUp(userName, password);
     } else {
       setAttemptCreate(false);
-      setCreateError(error);
+      setCreateError(err);
     }
   };
 
