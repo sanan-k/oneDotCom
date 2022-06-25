@@ -41,7 +41,7 @@ const ProductActionCard = ({ productId }: IProps) => {
   };
 
   return (
-    <Card title="Prodcut Action Card" style={{ width: 400 }}>
+    <Card title="Product Action Card" style={{ width: 400 }}>
       <LabeledInput
         name="product-name"
         label="Product Name"
