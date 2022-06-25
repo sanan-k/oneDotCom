@@ -60,7 +60,7 @@ const Products = () => {
           )}
         </div>
         <hr />
-        <Button onClick={handleFetchProducts}>Reterieve Prodcuts</Button>
+        <Button onClick={handleFetchProducts}>Reterieve Products</Button>
       </div>
       <ProductActionCard productId={productId} />
     </div>
