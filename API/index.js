@@ -9,8 +9,8 @@ const IndexHtml = __dirname + "/index.html";
 
 const app = express();
 
+app.use(cors("*"));
 app.use(express.json());
-app.use(cors());
 
 app.get("/", async (req, res, next) => {
   res.send((await fs.readFile(IndexHtml)).toString());

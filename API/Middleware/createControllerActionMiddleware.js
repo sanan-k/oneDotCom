@@ -32,7 +32,8 @@ const createControllerActionMiddleware = (action) => async (req, res) => {
       res.status(err.code).send(err.message);
       return;
     }
-    res.status(500).send(err);
+    console.log(500, err);
+    res.status(500).send("Server could not process your request");
   }
 };
 

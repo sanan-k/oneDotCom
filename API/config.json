@@ -20,7 +20,9 @@
       "CLEAR_SESSION_FAILED": "Could not clear session",
       "SESSION_EXPIRED": "Session expired",
       "INVALID_PASSWORD_PATTERN": "Password is not alpha-numeric",
-      "INVALID_ROLE_REQUESTED": "Role does not exists"
+      "INVALID_ROLE_REQUESTED": "Role does not exists",
+      "EMPTY_USER_NAME": "Username should be non empty",
+      "USER_NAME_NOT_AVAILABLE": "Username is not available"
     },
     "warning": {
       "SESSION_NOT_FOUND": "Session is not active"
