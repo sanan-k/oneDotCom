@@ -1,6 +1,6 @@
- Create database OneDotECom;
+Create database OneDotECom;
 
- -- use OneDotECom
+Use OneDotECom;
 
 Create Table RolePermission(
 	Id Int Auto_Increment Primary Key,
