@@ -39,4 +39,5 @@ const createControllerActionMiddleware = (action) => async (req, res) => {
 
 module.exports = {
   createControllerActionMiddleware,
+  ControllerActionError,
 };

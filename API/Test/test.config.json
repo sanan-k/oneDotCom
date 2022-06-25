@@ -1,0 +1,20 @@
+{
+  "test_user": {
+    "admin": {
+      "userName": "sanan-admin",
+      "password": "someMagic90werd"
+    },
+    "customer": {
+      "userName": "sanan-customer",
+      "password": "someMagic90werd"
+    },
+    "seller": {
+      "userName": "sanan-seller",
+      "password": "someMagic90werd"
+    },
+    "supporter": {
+      "userName": "sanan-supporter",
+      "password": "someMagic90werd"
+    }
+  }
+}
