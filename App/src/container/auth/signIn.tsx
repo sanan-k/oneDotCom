@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../../components/button";
 import LabeledInput from "../../components/labeledInput";
 
 import { login } from "../../service/auth";
@@ -24,17 +25,6 @@ const signUpTextStyle: React.CSSProperties = {
   cursor: "pointer",
   color: "blue",
   textDecoration: "underline",
-};
-
-const signInbtnStyle: React.CSSProperties = {
-  outline: "none",
-  fontSize: 24,
-  backgroundColor: "white",
-  border: "none",
-  padding: "10px 25px",
-  boxShadow: "gray 0 0 3px 0",
-  borderRadius: 3,
-  cursor: "pointer",
 };
 
 const SignIn = ({ onSignUpRequest, onSignedIn }: IProps) => {
@@ -81,13 +71,9 @@ const SignIn = ({ onSignUpRequest, onSignedIn }: IProps) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button
-          style={signInbtnStyle}
-          onClick={handleLogin}
-          disabled={loginAttempt}
-        >
+        <Button onClick={handleLogin} disabled={loginAttempt}>
           Login
-        </button>
+        </Button>
         {loginError && <div style={{ color: "orangered" }}>{loginError}</div>}
       </div>
       <div>

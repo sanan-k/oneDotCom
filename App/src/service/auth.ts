@@ -17,3 +17,15 @@ export const login = async (userName: string, password: string) => {
     return data;
   }
 };
+
+export const logout = async () => {
+  try {
+    const { data } = await axios.post(basePath + "/logout");
+    if (data) {
+      localStorage.removeItem("auth_token");
+      return null;
+    }
+  } catch ({ response: { data } }) {
+    return data;
+  }
+};

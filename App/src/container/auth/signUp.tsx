@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../../components/button";
 import LabeledInput from "../../components/labeledInput";
 interface IProps {
   onSignInRequest: () => void;
@@ -22,22 +23,13 @@ const signInTextStyle: React.CSSProperties = {
   textDecoration: "underline",
 };
 
-const signUpbtnStyle: React.CSSProperties = {
-  outline: "none",
-  fontSize: 24,
-  backgroundColor: "white",
-  border: "none",
-  padding: "10px 25px",
-  boxShadow: "gray 0 0 3px 0",
-  borderRadius: 3,
-  cursor: "pointer",
-};
-
 const SignUp = ({ onSignInRequest }: IProps) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState("");
+
+  const handleSignUp = async () => {};
 
   return (
     <div style={signUpCntnrStyle}>
@@ -109,7 +101,7 @@ const SignUp = ({ onSignInRequest }: IProps) => {
             onChange={(e) => setRole(e.target.value)}
           />
         </div>
-        <button style={signUpbtnStyle}>Sign Up</button>
+        <Button onClick={handleSignUp}>Sign Up</Button>
       </div>
       <div>
         <p>

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const No_Auth_Paths = ["/auth/login", "/user/register"];
+
 // const baseAxios = new axios.Axios({
 //   baseURL: process.env.API_BASE_URL + "/api",
 // });
@@ -22,6 +24,10 @@ import axios from "axios";
 
 axios.interceptors.request.use((config) => {
   config.baseURL = process.env.API_BASE_URL + "/api";
+  if (!No_Auth_Paths.includes(config.url)) {
+    const token = localStorage.getItem("auth_token");
+    config.headers.Authorization = `Bearer ${token}`;
+  }
   return config;
 });
 
