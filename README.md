@@ -2,26 +2,26 @@
 
 Hands On Interview - Fullstack - One Dot E-Com
 
-## Setup and Startup Guid
+## Setup and Startup Guide
 
-> # Database
+ ### Database
+  
+  - MySQL Server
+  - Run setup script available at path /Database/setup.sql
 
-> Use MySQL Server
-> Run setup script available at path /Database/setup.sql
->
-> # API
+ ### API
 
-> Assign environment values in .env file available at path /API/.env
-> Move to **API** working directory: `cd API`
-> Install packages: `npm install`
-> Start API: `npm start`
+  - Assign environment values in .env file available at path /API/.env
+  - Move to **API** working directory: `cd API`
+  - Install packages: `npm install`
+  - Start API: `npm start`
 
-# Web App
+ ### Web App
 
-> Assign environment values in .env file available at path /App/.env
-> Move to **App** working directory: `cd App`
-> Install packages: `npm install`
-> Start App: `npm start`
+  - Assign environment values in .env file available at path /App/.env
+  - Move to **App** working directory: `cd App`
+  - Install packages: `npm install`
+  - Start App: `npm start`
 
 ## Screen Captures
 
